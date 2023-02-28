@@ -1,2 +1,16 @@
 # sast-validator
-Script to help validate SAST and check more vulnerabilities
+Script to help validate SAST and check more vulnerabilities.
+
+
+## To run
+```python3 sast.py -d PATH -l Language (optional) ```
+```
+  _____          _____ _______  __      __   _ _     _       _             
+ / ____|  /\    / ____|__   __| \ \    / /  | (_)   | |     | |            
+| (___   /  \  | (___    | |     \ \  / /_ _| |_  __| | __ _| |_ ___  _ __ 
+ \___ \ / /\ \  \___ \   | |      \ \/ / _` | | |/ _` |/ _` | __/ _ \| '__|
+ ____) / ____ \ ____) |  | |       \  / (_| | | | (_| | (_| | || (_) | |   
+|_____/_/    \_\_____/   |_|        \/ \__,_|_|_|\__,_|\__,_|\__\___/|_| 
+```
+
+Enjoy it 💜
