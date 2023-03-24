@@ -14,6 +14,7 @@ runs:
   using: 'composite'
   steps:
     - name: Install Python
+      id: test
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'  
