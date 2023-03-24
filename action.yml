@@ -11,9 +11,6 @@ inputs:
     required: false
 
 runs:
-  defaults:
-       run:
-         working-directory: .
   using: 'docker'
   image: 'Dockerfile'
   args:
