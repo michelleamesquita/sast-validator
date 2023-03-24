@@ -4,6 +4,7 @@ ENV PYTHONUNBUFFERED=1
 
 COPY . .
 
+
 RUN chmod +x sast.py
 
 ENTRYPOINT ["./sast.py"]
