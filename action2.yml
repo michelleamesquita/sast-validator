@@ -11,13 +11,8 @@ inputs:
     required: false
 
 runs:
-  - name: Install Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'  
-  - name: Run Sast
-      run: python sast.py
-      shell: bash
+  using: 'docker'
+  image: 'Dockerfile'
   args:
     - -d ${{ inputs.path }}
     - -l ${{ inputs.language }}
