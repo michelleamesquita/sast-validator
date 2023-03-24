@@ -1,0 +1,23 @@
+name: 'SAST validator'
+author: 'michelleamesquita'
+description: 'Using python to verify vulnerabilities into code'
+branding:
+  icon: 'info'
+  color: 'green'
+inputs:
+  path:
+    required: true
+  language:
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install Python
+      id: test
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'  
+    - name: Run Sast
+      run: python sast.py -d ${{ inputs.path }} -l ${{ inputs.language }}
+      shell: bash

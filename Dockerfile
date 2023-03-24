@@ -1,9 +1,8 @@
-FROM python:3.10-alpine
+# Container image that runs your code
+FROM alpine:3.10
 
-ENV PYTHONUNBUFFERED=1
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY sast.py /sast.py
 
-COPY sast.py .
-
-RUN chmod +x sast.py
-
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["./sast.py"]
