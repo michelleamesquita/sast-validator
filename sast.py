@@ -1,6 +1,9 @@
 #!/usr/local/bin/python
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> acc41decf3d32291bacdbf459c2abdb397c5a47d
 import glob
 import re
 import argparse
