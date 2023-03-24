@@ -4,6 +4,4 @@ COPY . .
 
 RUN chmod +x sast.py
 
-RUN ls -la
-
 ENTRYPOINT ["/sast.py"]
