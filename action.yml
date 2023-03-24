@@ -20,7 +20,7 @@ runs:
     - name: Run Sast
       run: python sast.py
       shell: bash
-    args:
+  args:
       - -d ${{ inputs.path }}
       - -l ${{ inputs.language }}
     
