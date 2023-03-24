@@ -5,4 +5,4 @@ ENV PYTHONUNBUFFERED=1
 COPY . .
 
 #CMD ["./sast.py"]
-ENTRYPOINT ["./sast.py"]
+ENTRYPOINT ["/sast.py"]
