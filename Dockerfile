@@ -2,9 +2,11 @@ FROM python:3.10-alpine
 
 # COPY . .
 
-COPY sast.py /sast.py
+WORKDIR app
+
+COPY sast.py /app/sast.py
 
 
 RUN chmod +x sast.py
 
-ENTRYPOINT ["/sast.py"]
+ENTRYPOINT ["python3","sast.py"]
