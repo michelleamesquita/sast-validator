@@ -6,5 +6,4 @@ COPY . .
 
 RUN chmod +x sast.py
 
-#CMD ["./sast.py"]
 ENTRYPOINT ["./sast.py"]
