@@ -1,25 +1,16 @@
 name: 'SAST validator'
 author: 'michelleamesquita'
 description: 'Using python to verify vulnerabilities into code'
-branding:
-  icon: 'info'
-  color: 'green'
 inputs:
   path:
     required: true
     default: "."
   language:
     required: false
-
 runs:
   using: 'docker'
-  steps:
-    - name: Checkout repository content
-      uses: actions/checkout@v2 # Checkout the repository content to github runner.
-    
-    - name: sast validate
-      image: 'Dockerfile'
-      args:
-        - -d ${{ inputs.path }}
-        - -l ${{ inputs.language }}
+  image: 'Dockerfile'
+  args:
+    - -d ${{ inputs.path }}
+    - -l ${{ inputs.language }}
         

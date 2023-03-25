@@ -5,5 +5,5 @@ COPY sast.py /sast.py
 
 RUN chmod +x sast.py
 
-ENTRYPOINT ["./sast.py"]
+ENTRYPOINT ["/sast.py"]
 
