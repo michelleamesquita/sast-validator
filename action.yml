@@ -1,14 +1,24 @@
-# action.yml
 name: 'SAST validator'
+author: 'michelleamesquita'
 description: 'Using python to verify vulnerabilities into code'
+branding:
+  icon: 'info'
+  color: 'green'
 inputs:
   path:
     required: true
   language:
     required: false
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - -d ${{ inputs.path }}
-    - -l ${{ inputs.language }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content
+      - name: setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  
+      - name: run Sast
+        run: python sast.py -d ${{ inputs.path }} -l ${{ inputs.language }}

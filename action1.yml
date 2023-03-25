@@ -1,0 +1,14 @@
+# action.yml
+name: 'SAST validator'
+description: 'Using python to verify vulnerabilities into code'
+inputs:
+  path:
+    required: true
+  language:
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - -d ${{ inputs.path }}
+    - -l ${{ inputs.language }}
