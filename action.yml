@@ -7,12 +7,12 @@ branding:
 inputs:
   path:
     required: true
+    default: "."
   language:
     required: false
 jobs:
   build:
     runs-on: ubuntu-latest
-  
     steps:
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content
@@ -21,4 +21,5 @@ jobs:
         with:
           python-version: '3.10'  
       - name: run Sast
-        run: python sast.py -d ${{ inputs.path }} -l ${{ inputs.language }}
+        run: python sast.py -d=${{ inputs.path }} -l=${{ inputs.language }}
+        shell: bash
