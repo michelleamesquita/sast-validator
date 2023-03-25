@@ -1,6 +1,9 @@
 name: 'SAST validator'
 author: 'michelleamesquita'
 description: 'Using python to verify vulnerabilities into code'
+branding:
+  icon: 'info'
+  color: 'green'
 inputs:
   path:
     required: true
