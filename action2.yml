@@ -1,0 +1,16 @@
+name: 'SAST validator'
+author: 'michelleamesquita'
+description: 'Using python to verify vulnerabilities into code'
+inputs:
+  path:
+    required: true
+    default: "."
+  language:
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - -d=${{ inputs.path }}
+    - -l=${{ inputs.language }}
+        
