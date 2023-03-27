@@ -4,6 +4,7 @@
 
 set -e
 
+cd app/ 
 
 function main() {
 
@@ -24,7 +25,7 @@ function main() {
 
 main "$@"
 
-python3 /app/sast.py $dir $lang
+python3 sast.py $dir $lang
 
 exec "$@"
 
