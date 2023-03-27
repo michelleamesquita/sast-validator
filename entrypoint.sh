@@ -27,5 +27,4 @@ main "$@"
 
 python3 sast.py $dir $lang
 
-exec "$@"
 
