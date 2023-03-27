@@ -3,13 +3,33 @@ FROM python:3.10
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app
+RUN mkdir app
 
 COPY sast.py /app/sast.py
+COPY entrypoint.sh /entrypoint.sh
 
-RUN chmod +x sast.py
+# COPY sast.py /sast.py
+
+RUN chmod +x /app/sast.py
+RUN chmod +x /entrypoint.sh
 
 
-ENTRYPOINT ["./sast.py"]
+# CMD ["-d", ".", "-l", "python"]
 
-CMD ["-d=.", "-l=python"]
+# ENTRYPOINT ["sh", "-c", "cd /app && ./sast.py"]
+
+# ENTRYPOINT ./sast.py -d $dir -l $lang
+
+# ENTRYPOINT ./sast.py
+
+# ENTRYPOINT ["sh", "-c", "cd /app && ./sast.py"]
+
+# ENTRYPOINT ["cd /app && && ./sast.py"]
+
+# ENTRYPOINT ["python3", "sast.py"]
+
+# CMD ["-d=.", "-l=python"]
+
+ENTRYPOINT ["./entrypoint.sh"]
+
+CMD ["-d=."]
