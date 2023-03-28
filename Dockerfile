@@ -1,17 +1,38 @@
 # Container image that runs your code
-FROM python:3.10
+FROM python:3.6
 
 ENV PYTHONUNBUFFERED=1
 
 RUN mkdir app
 
+# COPY requirements.txt /app/requirements.txt
+
 COPY sast.py /app/sast.py
+
 COPY entrypoint.sh /entrypoint.sh
 
-# COPY sast.py /sast.py
 
 RUN chmod +x /app/sast.py
 RUN chmod +x /entrypoint.sh
+
+# ENTRYPOINT ["sh", "-c", "cd /app && ./sast.py"]
+
+
+ENTRYPOINT ["./entrypoint.sh"]
+
+CMD ["-d=.", "-l=python"]
+
+
+
+# RUN mkdir app
+
+# COPY sast.py /app/sast.py
+# COPY entrypoint.sh /entrypoint.sh
+
+# COPY sast.py /sast.py
+
+# RUN chmod +x /app/sast.py
+# RUN chmod +x /entrypoint.sh
 
 
 # CMD ["-d", ".", "-l", "python"]
@@ -30,6 +51,6 @@ RUN chmod +x /entrypoint.sh
 
 # CMD ["-d=.", "-l=python"]
 
-ENTRYPOINT ["./entrypoint.sh"]
+# ENTRYPOINT ["./entrypoint.sh"]
 
-CMD ["-d=."]
+# CMD ["-d=."]

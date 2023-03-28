@@ -25,6 +25,7 @@ function main() {
 
 main "$@"
 
+
 python3 sast.py $dir $lang
 
 
