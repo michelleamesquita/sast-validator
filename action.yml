@@ -8,19 +8,10 @@ inputs:
   language:
     required: false
 runs:
-  using: 'composite'
-  steps:
-    - name: Checkout repository content
-      uses: actions/checkout@v2 # Checkout the repository content to github runner.
-
-    - name: setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'  
-    - name: Pass Inputs to Shell
-      run: |
-                echo "INPUT_PATH=${{ inputs.path }} INPUT_LANG=${{ inputs.language }}" >> $GITHUB_ENV
-      shell: bash
-    - name: run Sast
-      run: python sast.py -d=${{ inputs.path }} -l=${{ inputs.language }}
-      shell: bash
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - -v $${{ github.workspace }}:/$PWD
+    - -d=${{ inputs.path }}
+    - -l=${{ inputs.language }}
+        
