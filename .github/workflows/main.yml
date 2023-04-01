@@ -15,5 +15,5 @@ jobs:
         uses: michelleamesquita/sast-validator@v40
         with:
           options: -v $PWD/:/app
-          path: ./app/
+          path: .
           language: python
