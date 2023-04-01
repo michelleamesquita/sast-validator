@@ -19,7 +19,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
-      run: docker build -t . --file Dockerfile --tag michelleamesquita/sast:latest
+      run: docker build -t sast . --file Dockerfile --tag michelleamesquita/sast:latest
       
     - name: Docker Push
       run: docker push michelleamesquita/sast
