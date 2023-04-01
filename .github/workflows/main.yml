@@ -3,5 +3,6 @@
       - name: SAST validator
         uses: michelleamesquita/sast-validator@v39
         with:
+          options: -v $PWD/:/$PWD
           path: .
           language: python
