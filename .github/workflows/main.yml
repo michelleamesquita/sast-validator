@@ -11,5 +11,5 @@ jobs:
       - name: SAST validator
         uses: michelleamesquita/sast-validator@v40
         with:
-          path: .
+          path: ./app/
           language: python
