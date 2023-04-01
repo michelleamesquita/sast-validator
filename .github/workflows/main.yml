@@ -1,19 +1,27 @@
+name: Docker Image CI
 
 on:
   push:
-    branches:
-    - main
+    branches: [ main ]
 
 jobs:
-    compile:
-        name: Compile site assets
-        runs-on: ubuntu-latest
-        steps:
-          - name: Check out the repo
-            uses: actions/checkout@v2
-          - name: Run the build process with Docker
-            uses: addnab/docker-run-action@v3
-            with:
-                image: michelleamesquita/sast:latest
-                options: -v $PWD/:/app sast -d=. -l=python
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag michelleamesquita/sast:$(date +%s)
+      
+    - name: Docker Push
+      run: docker push michelleamesquita/sast
+
                 
