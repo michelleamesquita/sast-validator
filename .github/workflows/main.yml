@@ -1,8 +1,15 @@
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  sast_job:
+    runs-on: ubuntu-latest
     name: SAST Validator
     steps:
       - name: SAST validator
         uses: michelleamesquita/sast-validator@v39
         with:
-          options: -v $PWD/:/$PWD
           path: .
           language: python
