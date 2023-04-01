@@ -5,12 +5,15 @@ on:
     - main
 
 jobs:
-  sast_job:
-    runs-on: ubuntu-latest
-    name: SAST Validator
-    steps:
-      - name: SAST validator
-        uses: michelleamesquita/sast-validator@v38
-        with:
-          path: .
-          language: python
+    compile:
+        name: Compile site assets
+        runs-on: ubuntu-latest
+        steps:
+          - name: Check out the repo
+            uses: actions/checkout@v2
+          - name: Run the build process with Docker
+            uses: addnab/docker-run-action@v3
+            with:
+                image: michelleamesquita/sast:latest
+                options: -v $PWD/:/app sast -d=. -l=python
+                
