@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: SAST Validator
     steps:
-       - name: Checkout repository content
+      - name: Checkout repository content
         uses: actions/checkout@v2 
 
       - name: SAST validator
