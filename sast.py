@@ -171,7 +171,7 @@ def use_regex(dir,lang):
         java_regex_search(dir,ext)
     elif lang == "c#":
         csharp_regex_search(dir,ext)
-    else:
+    elif lang == "node":
         node_regex_search(dir,ext)
 
 
