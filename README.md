@@ -3,7 +3,7 @@ Script to help validate SAST and check more vulnerabilities.
 
 
 ## Run
-```python3 sast.py -d PATH -l Language (optional) ```
+```python3 sast.py -d PATH -l Language (optional) ``` 
 ```
   _____          _____ _______  __      __   _ _     _       _             
  / ____|  /\    / ____|__   __| \ \    / /  | (_)   | |     | |            
